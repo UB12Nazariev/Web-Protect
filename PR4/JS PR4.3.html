@@ -1,0 +1,23 @@
+<html>
+
+<body>
+
+<script>
+mm=new Array ('€нв','фев','март','апр','май','июнь','июль','авг','сент','окт','но€б','дек');
+dnn=new Array('вс','пн','вт','ср','чт','пт','сб');
+
+
+
+d=new Date();
+g=d.getFullYear();
+dd=new Date(g+1,8,1);
+ch=dd.getDate();
+me=dd.getMonth();
+go=dd.getFullYear();
+dn=dd.getDay()
+
+alert('число: '+ch+' // '+'мес€ц: '+mm[me]+' // '+go+' год'+' // день недели: '+dnn[dn]);
+</script>
+</body>
+
+</html>

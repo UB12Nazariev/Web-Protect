@@ -1,0 +1,23 @@
+<script>
+arr=new Array(10);s='';
+arrind=new Array(10);
+for(i=0; i<arr.length; i++)
+{
+y=Math.random()*10+10;
+arr[i]=Math.floor(y);
+s=s+' '+arr[i];
+}
+for(i=0; i<arr.length; i++)
+{
+min=10000;
+if(arr[i]<=min)
+{
+ind=i;
+min=arr[i];
+}
+}
+alert(s);
+otv="индекс: "+ind+" число: "+min;
+alert(otv);
+
+</script>
