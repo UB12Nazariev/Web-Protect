@@ -1,0 +1,25 @@
+<head>
+<script>
+var planets = ['Меркурий','Венера','Земля','Марс','Юпитер','Сатурн', 'Уран','Нептун'];
+st=prompt('Введите число от 1 до 8'); 
+n=parseInt(st);
+if(n>0 && n<=8 ){
+	n2='Номер планеты: ';
+	n3='. Это '
+	pl=planets[n-1];
+	s1='<h3>';
+	s2=n2+n+n3+pl;
+	s3='</h3>';
+	s=s1+s2+s3;
+	document.write(s);
+}
+else{
+	s1='<h3>';
+	s2='Ошибка!'
+	s3='</h3>';
+	s=s1+s2+s3;
+	document.write(s);
+}
+
+</script>
+</head>

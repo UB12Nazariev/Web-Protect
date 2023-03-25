@@ -1,0 +1,44 @@
+<head>
+<script>
+function planets()
+{
+var planets = ['Меркурий','Венера','Земля','Марс','Юпитер','Сатурн', 'Уран','Нептун'];
+var back = ['grey','yellow','aqua','orange','darksalmon','lightsalmon','teal','navy'];
+var font = ['Arial','Arial Black','Impact','Tahoma', 'Courier','Consolas','Times New Roman','Helvetica']
+
+st=prompt('Введите номер планеты');
+n=parseInt(st);
+
+if(n>0 && n<=8){
+
+g1='<head><style>body {background-color:';
+g3='}h3{font-family:'
+g5='}</style></head>';
+s1='<body><h3>'+'Номер '+n+', это - '
+s3='</h3></body>'
+
+s2=planets[n-1];
+g2=back[n-1];
+g4=font[n-1];
+
+g=g1+g2+g3+g4+g5;
+s=s1+s2+s3;
+w=window.open("","","width=300,height=200");
+w.document.open();
+w.document.write(g);
+w.document.write(s);
+w.document.close();
+}
+else{
+w=window.open("","","width=300,height=200");
+w.document.open();
+w.document.write('Ошибка!');
+w.document.close();
+}
+}
+</script>
+</head>
+<body>
+<input type='button' value='START' onclick='planets()'>
+<input type='button' value='CLOSE' onclick='w.close();'>
+</body>
