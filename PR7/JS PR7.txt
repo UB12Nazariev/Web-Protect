@@ -1,0 +1,30 @@
+<html>
+<style>
+img{width:200;height:200}
+h4{text-align:center}
+th{width:200;height:200}
+table{margin:auto}
+</style>
+<head>
+<script>
+i=1;
+function chan()
+{
+r=document.getElementById('pic')
+if(i==0)
+{r.style.display='block';i=1;}
+else
+{r.style.display='none';i=0}
+}
+</script>
+</head>
+<bodu>
+<h4>PR7 Variant 10</h4>
+<table>
+<tr>
+<th><img src="car1.jpg" id="pic"></th>
+<th><input type="button" value="Next" onClick="chan()"></th>
+</tr>
+</table>
+</body>
+</html>
