@@ -1,0 +1,35 @@
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+    function f(){
+        x="";
+        if (document.getElementById("c1").checked){
+	        x+="html ";
+        }
+        if (document.getElementById("c2").checked){
+	        x+="css ";
+        }
+        if (document.getElementById("c3").checked){
+	        x+="js ";
+        }
+        if (document.getElementById("c4").checked){
+	        x+="php ";
+        }
+        $("h2").after(x);
+
+}
+</script>
+</head>
+<body>
+<h1>JS PR8 Variant 10</h1>
+<p id="p1">html
+<input type="checkbox" id="c1">
+<p id="p2">css
+<input type="checkbox" id="c2">
+<p class="p3">js
+<input type="checkbox" id="c3">
+<p class="p4">php
+<input type="checkbox" id="c4"></p>
+<input type="button" value="Ответ" id="b" onclick="f()">
+<h2>
+</body>
