@@ -1,21 +1,23 @@
 <html>
-
 <body>
-
 <script>
 str=prompt('введите строку');
 len=str.length;
 k=0;
 for(i=0;i<len;i++){
-c=str.charAt(i);
-if(c==' '){
-for(j=0;j<len-i;j++){
-cc=str.charAt(j);
-if(cc=='*'){
-k++;
-}
-}
-}
+    c=str.charAt(i);
+    if(c==' '){
+        for(j=i+1;j<len;j++){
+            cc=str.charAt(j);
+            if(cc=='*'){
+                k++;
+            }
+            if(cc==' '){    //условие для учитывания
+                break;      //символов между 1 и 2 пробелом
+            }
+        }
+    break;   
+    }
 }
 alert(k);
 </script>
