@@ -6,11 +6,11 @@
     </div>
 
     <script type="text/JavaScript">
-        var curPosX = 829;
         var interval; 
-        var n = 10; 
-        var width = document.documentElement.clientWidth; 
-        var imgWidth = 102; 
+        var n = 8; 
+        var width = document.documentElement.clientWidth;
+        var imgWidth = 100;
+        var curPosX = width/2-imgWidth;  
         var img1 = document.getElementById("im2"); 
         interval = setInterval(left, 10); 
         function left() { 
@@ -23,7 +23,7 @@
         } 
         function right (){
         img1.style.left = (curPosX += n) + "px";
-        if (curPosX >= 829){
+        if (curPosX >= width/2-imgWidth){
             clearInterval(interval);
         }
         }
