@@ -1,6 +1,16 @@
 <head>
 <script type="text/javascript" src="jquery.js"></script>
 <script>
+        $(function (){ 
+            $('button').click(function(){
+                $('h2').empty(); 
+            });
+        });
+        $(function (){ 
+            $('button').click(function(){
+                $('h2').add(x); 
+            });
+        });
     function f(){
         x="";
         if (document.getElementById("c1").checked){
@@ -15,8 +25,6 @@
         if (document.getElementById("c4").checked){
 	        x+="php ";
         }
-        $("h2").after(x);
-
 }
 </script>
 </head>
@@ -26,10 +34,10 @@
 <input type="checkbox" id="c1">
 <p id="p2">css
 <input type="checkbox" id="c2">
-<p class="p3">js
+<p id="p3">js
 <input type="checkbox" id="c3">
-<p class="p4">php
+<p id="p4">php
 <input type="checkbox" id="c4"></p>
 <input type="button" value="Ответ" id="b" onclick="f()">
-<h2>
+<h2></h2>
 </body>
