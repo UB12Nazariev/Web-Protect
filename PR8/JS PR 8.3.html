@@ -1,32 +1,26 @@
 <head>
 <script type="text/javascript" src="jquery.js"></script>
-<script>
-        $(function (){ 
-            $('button').click(function(){
-                $('h2').empty(); 
-            });
-        });
-        $(function (){ 
-            $('button').click(function(){
-                $('h2').add(x); 
-            });
-        });
-    function f(){
-        x="";
-        if (document.getElementById("c1").checked){
-	        x+="html ";
+    <script>
+        function f(){
+            x="";
+            if (document.getElementById("c1").checked){
+                x+="html ";
+            }
+            if (document.getElementById("c2").checked){
+                x+="css ";
+            }
+            if (document.getElementById("c3").checked){
+                x+="js ";
+            }
+            if (document.getElementById("c4").checked){
+                x+="php ";
+            }
+            changeText();
         }
-        if (document.getElementById("c2").checked){
-	        x+="css ";
+        const changeTex  = () => {
+            document.getElementsByClassName('text')[0].textContent = x;
         }
-        if (document.getElementById("c3").checked){
-	        x+="js ";
-        }
-        if (document.getElementById("c4").checked){
-	        x+="php ";
-        }
-}
-</script>
+    </script>
 </head>
 <body>
 <h1>JS PR8 Variant 10</h1>
@@ -39,5 +33,5 @@
 <p id="p4">php
 <input type="checkbox" id="c4"></p>
 <input type="button" value="Ответ" id="b" onclick="f()">
-<h2></h2>
+<p class="text"></p>
 </body>
