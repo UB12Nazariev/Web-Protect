@@ -1,0 +1,196 @@
+<html>
+    <style>
+        #birthday {
+        font-size: 16px;
+        color: #333;
+        }
+        #birthday span {
+        font-size: 24px;
+        color: #f00;
+        }
+        h4{
+            text-align:center
+        }
+        .slider-container {
+        position: relative;
+        width: 250px;
+        height: 200px;
+        display:block;
+        margin:0 auto;
+        }
+        .slider-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+
+        }
+        .slider-image:hover {
+        transform: scale(1.2);
+        }
+        .slider-buttons {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        }
+        .slider-button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        background-color: #ccc;
+        margin: 0 10px;
+        cursor: pointer;
+        }
+        .slider-button.active {
+        background-color: #333;
+        }
+        .about-me {
+        font-size: 16px;
+        color: #333;
+        transition: font-size 0.5s ease, color 0.5s ease;
+        }
+
+        .about-me:hover {
+        font-size: 20px;
+        color: #f00;
+        }
+    </style>
+    <body>
+        <h4>JS PR10</h4>
+        <div class="slider-container">
+            <img src="image1.jpg" alt="Slide 1" class="slider-image">
+            <img src="image2.jpg" alt="Slide 2" class="slider-image">
+            <img src="image3.jpg" alt="Slide 3" class="slider-image">
+            <div class="slider-buttons">
+              <button class="slider-button active" data-slide="1"></button>
+              <button class="slider-button" data-slide="2"></button>
+              <button class="slider-button" data-slide="3"></button>
+            </div>
+          </div>
+          <footer>
+            <p id="birthday">Моя дата рождения: 28.05.2003</p>
+          </footer>
+          <div class="about-me">
+            <p>Меня зовут Иван Иванов, я занимаюсь веб-разработкой уже несколько лет. Я люблю создавать красивые и функциональные сайты, которые помогают людям решать их задачи.</p>
+          </div>
+    </body>
+    <script>
+        const images = document.querySelectorAll('.slider-image');
+        const buttons = document.querySelectorAll('.slider-button');
+
+        let currentSlide = 0;
+
+        function showSlide(slide) {
+        images.forEach(image => image.style.display = 'none');
+        images[slide].style.display = 'block';
+        
+        buttons.forEach(button => button.classList.remove('active'));
+        buttons[slide].classList.add('active');
+        }
+
+        function nextSlide() {
+        currentSlide++;
+        if (currentSlide >= images.length) {
+            currentSlide = 0;
+        }
+        showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = images.length - 1;
+        }
+        showSlide(currentSlide);
+        }
+
+        buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            currentSlide = parseInt(button.dataset.slide) - 1;
+            showSlide(currentSlide);
+        });
+        });
+
+        //setInterval(nextSlide, 5000);
+
+        showSlide(currentSlide);
+
+
+        const aboutMe = document.querySelector('.about-me');
+
+        let fontSize = 16;
+        let firstNameSize = 20;
+        let lastNameSize = 12;
+
+        function increaseFontSize() {
+        fontSize++;
+        aboutMe.style.fontSize = `${fontSize}px`;
+        }
+
+        function decreaseFontSize() {
+        fontSize--;
+        aboutMe.style.fontSize = `${fontSize}px`;
+        }
+
+        aboutMe.addEventListener('mouseenter', () => {
+        aboutMe.style.fontSize = '20px';
+        aboutMe.style.color = '#f00';
+        });
+
+        aboutMe.addEventListener('mouseleave', () => {
+        aboutMe.style.fontSize = '16px';
+        aboutMe.style.color = '#333';
+        });
+
+        document.addEventListener('keydown', (event) => {
+        if (event.key === 'd') {
+            increaseFontSize();
+        } else if (event.key === 'n') {
+            decreaseFontSize();
+        }
+        });
+
+        const birthday = document.querySelector('#birthday');
+        const countdown = document.createElement('span');
+        countdown.style.fontSize = '24px';
+        countdown.style.color = '#f00';
+        birthday.appendChild(countdown);
+
+        let isUpperCase = true;
+
+        function toggleCase() {
+            const date = birthday.textContent;
+            if (isUpperCase) {
+                birthday.textContent= date.toUpperCase();
+                isUpperCase = false;
+            } else {
+                birthday.textContent= date.toLowerCase();
+                isUpperCase = true;
+            }
+        }
+
+        function updateCountdown() {
+            const date1 = new Date("2023-05-28");
+            const date2 = new Date();
+            const diffInTime = date2.getTime() - date1.getTime();
+            const diffInDays = - Math.round(diffInTime / 86400000) + 1;
+            return diffInDays
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 86400000);
+
+        document.addEventListener('keydown', (event) => {
+        if (event.key === 'y') {
+            toggleCase();
+            x = 'Осталось ' + updateCountdown()+ ' дней до ДР';
+            alert(x);
+        }
+        });
+    </script>
+</html>

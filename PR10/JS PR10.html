@@ -1,14 +1,35 @@
 <html>
     <style>
-        img{width:250;height:200}
-        h4{text-align:center}
-        th{width:250;height:200}
-        table{margin:auto}
+        img{
+            width:250;height:200;
+            transition: transform 0.5s ease;
+        }
+        img:hover{
+            transform: scale(1.2)
+        }
+        h4{
+            text-align:center
+        }
+        .slider {
+            display: flex;
+            width: 100%;
+            height: 60px;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
     <head>
         <script>
             i=0;
-            function f(){
+            function next(){
+                r=document.getElementById("im")
+                x='image'+i+'.jpg'
+                
+            }
+            function back(){
+                
+            }
+            /*function f(){
                 if(i==0){
                     r=document.getElementById("im")
                     r.src=r.src.replace("image1.jpg","image2.jpg")
@@ -19,22 +40,13 @@
                     r.src=r.src.replace("image2.jpg","image1.jpg")
                     i=0;
                 }
-            }
-            function bigimg(type){
-                r=document.getElementById("im")
-                if(type){
-                    r.style.width="350px"
-                    r.style.height="300px"
-                }else{
-                    r.style.width="250px"
-                    r.style.height="200px"
-                }
-            }
+            }*/
         </script>
     </head>
     <body>
         <h4>JS PR10</h4>
-        <img src="image1.jpg" id="im" onmouseover="bigimg(true)" onmouseout="bigimg(false)">
-        <input type="button" value="Следующий" id="b" onclick="f()">
+        <img src="image1.jpg" id="im" style="display:block; margin:0 auto;" >
+        <input type="button" value="Назад" id="prev" style="display:block;" onclick="back()">
+        <input type="button" value="Вперёд" id="next" style="display:block;" onclick="next()">
     </body>
 </html>
