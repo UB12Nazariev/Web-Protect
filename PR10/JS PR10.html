@@ -148,9 +148,9 @@
         });
 
         document.addEventListener('keydown', (event) => {
-        if (event.key === 'd') {
+        if (event.key === 'd' || event.key === 'D' || event.key === 'в' || event.key === 'В') {
             increaseFontSize();
-        } else if (event.key === 'n') {
+        } else if (event.key === 'n' || event.key === 'N' || event.key === 'т' || event.key === 'Т') {
             decreaseFontSize();
         }
         });
@@ -186,7 +186,7 @@
         setInterval(updateCountdown, 86400000);
 
         document.addEventListener('keydown', (event) => {
-        if (event.key === 'y') {
+        if (event.key === 'y' || event.key === 'Y' || event.key === 'н' || event.key === 'Н') {
             toggleCase();
             x = 'Осталось ' + updateCountdown()+ ' дней до ДР';
             alert(x);
